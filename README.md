@@ -6,16 +6,14 @@ Stick Tender is an application that helps you take care of your plants by remind
 tracking your plant's health.
 
 <!-- TOC -->
-
 * [Stick Tender](#stick-tender)
-    * [Plant Care Reminder](#plant-care-reminder)
-    * [Features](#features)
-    * [Requirements](#requirements)
-    * [Installation](#installation)
-    * [Usage](#usage)
-    * [Credits](#credits)
-    * [License](#license)
-
+  * [Plant Care Reminder](#plant-care-reminder)
+  * [Features](#features)
+  * [Requirements](#requirements)
+  * [Installation](#installation)
+  * [Usage](#usage)
+  * [Credits](#credits)
+  * [License](#license)
 <!-- TOC -->
 
 ## Features
