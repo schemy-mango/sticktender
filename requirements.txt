@@ -1,3 +1,4 @@
 Pillow~=9.4.0
-schedule
-tkinterx
+uvicorn~=0.20.0
+fastapi~=0.92.0
+pydantic~=1.10.5
