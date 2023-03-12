@@ -1,24 +1,12 @@
-#  Copyright (c) 2023. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-#  Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
-#  Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
-#  Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
-#  Vestibulum commodo. Ut rhoncus gravida arcu.
-
-from typing import Union
+#  Copyright (c) 2023. Marek Krysiak
 
 import uvicorn
 from PIL import Image
 from fastapi import FastAPI
-from pydantic import BaseModel
+
+from app.models import PlantModel, SiteModel
 
 app = FastAPI()
-
-
-class Item(BaseModel):
-    name: str
-    name_binominal: str
-    is_alive: Union[bool, None] = None
-    misting: Union[int, None] = None
 
 
 @app.get("/")
@@ -29,6 +17,21 @@ def read_root():
 @app.get("/plants/{plant_id}")
 def get_plant(plant_id: int):
     return {"plant_id": plant_id}
+
+
+@app.get("/sites/{site_id}")
+def get_site(site_id: int):
+    return {"site_id": site_id}
+
+
+@app.post("/add_plant")
+def add_plant(plant_details: PlantModel):
+    return {"message": "Done"}
+
+
+@app.post("/add_site")
+def add_site(site_details: SiteModel):
+    return {"message": "Done"}
 
 
 def main():
