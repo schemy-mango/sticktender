@@ -1,3 +1,4 @@
+import uvicorn
 from fastapi import Depends, FastAPI, HTTPException
 from sqlalchemy.orm import Session
 
@@ -64,3 +65,7 @@ def create_item_for_user(
 def read_items(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     items = crud.get_items(db, skip=skip, limit=limit)
     return items
+
+
+if __name__ == '__main__':
+    uvicorn.run("app.main:app", port=5000, reload=True, access_log=False)

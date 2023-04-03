@@ -1,9 +1,7 @@
 from sqlalchemy.orm import Session
 
-from . import (
-    models,  # the SQLAlchemy models
-    schemas  # the Pydantic models / schemas
-)
+from app import schemas  # the Pydantic models / schemas
+from . import models  # the SQLAlchemy models
 
 
 def get_user(db: Session, user_id: int):
@@ -37,3 +35,19 @@ def create_user_item(db: Session, item: schemas.ItemCreate, user_id: int):
     db.commit()
     db.refresh(db_item)
     return db_item
+
+
+def create_user_plant(db: Session, plant: schemas.PlantCreate, user_id: int):
+    db_plant = models.Plant(**plant.dict(), owner_id=user_id)
+    db.add(db_plant)
+    db.commit()
+    db.refresh(db_plant)
+    return db_plant
+
+
+def create_user_site(db: Session, site: schemas.SiteCreate, user_id: int):
+    db_site = models.Site(**site.dict(), owner_id=user_id)
+    db.add(db_site)
+    db.commit()
+    db.refresh(db_site)
+    return db_site
